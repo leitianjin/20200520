@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>tab图片切换</title>
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,img,form,applet,fieldset,legend,button,input,textarea,th,table,tr,td{margin:0;padding:0;border:none;}
+ 
+/* bady */
+body{font-family:"微软雅黑";font-size:12px;color:#666;max-width:640px;min-width:320px;position:relative;background:#f9f9f9;margin:0 auto;}
+body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,p{-webkit-text-size-adjust:none}
+html{height:100%;width:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);background:#f9f9f9;}
+ 
+/* img */
+img{padding:0;margin:0;vertical-align:top;border:none;}
+i,em{font-style:normal;}
+ 
+/* div */
+.clear{clear:both;height:0;width:100%;}
+a,b,i,span,input,select,dl,dd,dt,p{font-family:'微软雅黑';}
+ 
+.anli{width:calc(100% - 20px);padding:10px;background:#fff;display:inline-block;}
+.anli .info_box_04{width:100%;float:left;position:relative;padding:60px 0 20px 0;}
+.anli .info_box_04 .info_img{float:left;width:100%;}
+.anli .info_box_04 .info_img div{display:none;width:100%;position:relative;}
+.anli .info_box_04 .info_img div.on{display:block;}
+.anli .info_box_04 .info_img img{width:100%;}
+.anli .info_box_04 .info_img i{line-height:36px;font-size:14px;position:absolute;color:#fff;width:100%;bottom:0;left:0;text-align:center;background:rgba(0,0,0,.7);}
+.anli .info_box_04 .info_tab{width:calc(100% + 10px);float:left;margin:10px 0 0 -10px;}
+.anli .info_box_04 .info_tab div{float:left;width:calc((100% - 30px)/ 3);margin-left:10px;position:relative;}
+.anli .info_box_04 .info_tab div img{width:100%;}
+.anli .info_box_04 .info_tab div i{width:calc(100% - 4px);height:calc(100% - 4px);border:2px solid #fbbe65;display:none;position:absolute;top:0;left:0;}
+.anli .info_box_04 .info_tab div.on i{display:block;}
+.anli .info_box_04 .info_txt{float:left;width:100%;margin:10px 0;}
+.anli .info_box_04 .info_txt div{display:none;line-height:20px;font-size:14px;text-indent:0.5rem;}
+.anli .info_box_04 .info_txt div.on{display:block;}
+</style>
+</head>
+ 
+<body>
+<div class="anli">
+   <div class="info_box_04">
+      <div class="info_ner">
+        <div class="info_img">
+          <div class="on"><img src="https://img.suofeiya.com.cn/images/201809/90a29c14-f45f-8e23-9187-84449271b6b5.jpg" title="first image"><i>现代简约风格入户吧台餐酒柜设计效果图</i></div>
+          <div><img src="https://img.suofeiya.com.cn/images/201809/fb925a56-aa70-1518-5b7e-5825c263cc74.jpg" title="second image"><i>现代简约风格入户吧台餐酒柜设计效果图</i></div>
+          <div><img src="https://img.suofeiya.com.cn/images/201809/638673f4-9cca-da31-3082-851ae1e3f221.jpg" title="third image"><i>现代简约风格入户吧台餐酒柜设计效果图</i></div>
+        </div>
+        <div class="info_tab"></div>
+        <div class="info_txt">
+          <div class="on">入户收纳相对简单，主要以门后下方的大掩门柜作为鞋柜，如果鞋子比较多，旁边小的掩门柜也可以用上。而且两个掩门柜高低不一的设计，添了一丝层次变化。</div>
+          <div>吧台餐桌作为嵌入式设计，立面空间占用更少，视觉上更加平整。吧台餐桌两边都自带收纳设计，业主可以根据实际需求放置各种物品，无论是平时饮酒或者就餐都很方便。</div>
+          <div>餐酒柜区域的设计以开放为主，两个蜂巢式储酒柜可以加大储酒空间，适当加入玻璃掩门设计令收纳更可视化，同时利用开放掩门相接、对角高度错开，增添了整个柜体的变化感。</div>
+        </div>
+      </div>
+   </div>
+</div>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+for(var i=0;i<$('.info_box_04 .info_ner').length;i++){
+	for(var o=0;o<$('.info_box_04 .info_ner:eq('+ i +') .info_img div').length;o++){
+		$('.info_box_04 .info_ner:eq('+ i +') .info_tab').append('<div><img src="'+ $('.info_box_04 .info_ner:eq('+ i +') .info_img div').eq(o).find('img').attr('src') +'"><i></i></div>')
+		$('.info_box_04 .info_ner:eq('+ i +') .info_tab div').eq(0).addClass('on');
+	};
+};
+ 
+$('.info_box_04').on('click','.info_tab div',function(){
+	var a = $(this).index();
+	$(this).addClass('on').siblings().removeClass('on');
+	$(this).parent().siblings('.info_img').find('div').eq(a).addClass('on').siblings().removeClass('on');
+	$(this).parent().siblings('.info_txt').find('div').eq(a).addClass('on').siblings().removeClass('on');
+});
+</script>
+</body>
+</html>
+ 
