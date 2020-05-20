@@ -1,5 +1,6 @@
 html{
-	background:linear-gradient(#FF6666 0%,#336699 20%);/*背景渐变颜色*/
+	/*background:linear-gradient(#FF6666 0%,#336699 20%);/*背景渐变颜色*/
+	background: pink;
     height: 100%;
     color:#99cc33;/*文字颜色*/
 }
